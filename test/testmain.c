@@ -1,9 +1,9 @@
 /*============================================================================
 testmain.c
 
-A dodgy self contained test system for minvec.h
+A dodgy self contained test system for bsv.h
 
-Copyright(c) 2018 HJA Bird
+Copyright(c) 2019 HJA Bird
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files(the "Software"), to deal
