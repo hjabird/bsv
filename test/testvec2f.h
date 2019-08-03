@@ -69,7 +69,8 @@ int testVec2f(){
     TEST(bsv_V2f_dot(vecx, vecy) == 0.);
     TEST(bsv_V2f_dot(vec1, vecx) == 1.);
     TEST(bsv_V2f_dot(vecx, vec2) == 2.);
-    TEST(fabs(bsv_V2f_dot(vec2, vec2) - powf(bsv_V2f_abs(vec2), 2)) < 1e-6);
+    TEST(fabsf(bsv_V2f_dot(vec2, vec2) - powf(bsv_V2f_abs(vec2), 2.f)) 
+		< 1e-6f);
     /* Unit */
     TEST(bsv_V2f_isequal(
         bsv_V2f_unit(vecx), vecx));

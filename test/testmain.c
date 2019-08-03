@@ -31,8 +31,10 @@ SOFTWARE.
 
 #define SECTION(X) section(X)
 
-int tests_passed = 0;
-int tests_completed = 0;
+int total_tests_passed = 0;
+int total_tests_completed = 0;
+int section_tests_passed = 0;
+int section_tests_completed = 0;
 char working_section_name[512] = "";
 
 void test(char* file_name, int line_no, int passed){
@@ -40,32 +42,55 @@ void test(char* file_name, int line_no, int passed){
         printf("Test failed:\n\t%s\n\tLine %i\n", file_name, line_no);
         assert(0);
     } else {
-        tests_passed += 1;
+        section_tests_passed += 1;
     }
-    tests_completed += 1;
+    section_tests_completed += 1;
     return;
 }
 
 void section(char section_name[]){
-    if(tests_passed > 0){
+    if(section_tests_passed > 0){
         printf("Passed %i of %i tests in section %s.\n", 
-            tests_passed, tests_completed, working_section_name);
+            section_tests_passed, section_tests_completed, working_section_name);
     }
-    tests_passed = 0;
-    tests_completed = 0;
+	total_tests_passed += section_tests_passed;
+	total_tests_completed += section_tests_completed;
+    section_tests_passed = 0;
+    section_tests_completed = 0;
     strcpy(working_section_name, section_name);
     return;
 }
 
-#include "testvec3f.h"
-#include "testvec3d.h"
+int print_summary() {
+	printf("\nComplete!\nPassed %i of %i tests (%i failed).\n",
+		total_tests_passed, total_tests_completed, 
+		total_tests_completed - total_tests_passed);
+	return total_tests_completed - total_tests_passed;
+}
+
 #include "testvec2f.h"
 #include "testvec2d.h"
+#include "testvec3f.h"
+#include "testvec3d.h"
+#include "testvec4f.h"
+#include "testvec4d.h"
+
+#include "testmat2f.h"
+#include "testmat2d.h"
+#include "testmat3f.h"
+#include "testmat3d.h"
 
 int main(int argc, char* argv[]){
-    testVec3f();
-    testVec3d();
     testVec2f();
     testVec2d();
-    SECTION("Ending!");
+    testVec3f();
+    testVec3d(); 
+	testVec4f();
+	testVec4d();
+	testMat2f();
+	testMat2d();
+	testMat3f();
+	testMat3d();
+	SECTION("");
+	return print_summary();
 }
