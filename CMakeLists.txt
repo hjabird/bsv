@@ -4,7 +4,7 @@ project(bsv C)
 set(BSV_MAJOR 0)
 set(BSV_MINOR 1)
 set(BSV_PATCHLEVEL 0)
-set(RANGE_V3_VERSION ${BSV_MAJOR}.${BSV_MINOR}.${BSV_PATCHLEVEL})
+set(BSV_VERSION ${BSV_MAJOR}.${BSV_MINOR}.${BSV_PATCHLEVEL})
 
 add_library(bsv INTERFACE)
 target_include_directories(bsv
