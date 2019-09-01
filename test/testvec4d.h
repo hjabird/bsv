@@ -40,8 +40,6 @@ int testVec4d() {
 	bsv_V4d vecy = { 0,1,0,0 };
 	bsv_V4d vecz = { 0,0,1,0 };
 	bsv_V4d vecw = { 0,0,0,1 };
-	bsv_V4d vecxy = { 1, 1, 0, 0 };
-	bsv_V4d vecmxy = { -1, 1, 0, 0 };
 
 	/* Reading back works */
 	TEST(vec0.x[0] == 0.0);

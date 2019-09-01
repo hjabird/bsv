@@ -79,8 +79,10 @@ int print_summary() {
 #include "testmat2d.h"
 #include "testmat3f.h"
 #include "testmat3d.h"
+#include "testmat4d.h"
 
 int main(int argc, char* argv[]){
+	argv; argc; /* Stops warnings... */
     testVec2f();
     testVec2d();
     testVec3f();
@@ -91,6 +93,7 @@ int main(int argc, char* argv[]){
 	testMat2d();
 	testMat3f();
 	testMat3d();
+	testMat4d();
 	SECTION("");
 	return print_summary();
 }

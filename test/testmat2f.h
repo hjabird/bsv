@@ -50,7 +50,6 @@ int testMat2f() {
 	bsv_V2f vec55 = { 5,5 };
 	bsv_V2f vecx = { 1,0 };
 	bsv_V2f vecy = { 0,1 };
-	bsv_V2f vec1 = { 1,1 };
 
 	const float fpi = 3.14159265359f;
 

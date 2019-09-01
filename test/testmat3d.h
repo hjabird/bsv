@@ -55,7 +55,6 @@ int testMat3d() {
 	bsv_V3d vecx = { 1,0,0 };
 	bsv_V3d vecy = { 0,1,0 };
 	bsv_V3d vecz = { 0,0,1 };
-	bsv_V3d vec1 = { 1,1,1 };
 
 	const double fpi = 3.14159265359;
 

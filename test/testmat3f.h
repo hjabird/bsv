@@ -55,7 +55,6 @@ int testMat3f() {
 	bsv_V3f vecx = { 1,0,0 };
 	bsv_V3f vecy = { 0,1,0 };
 	bsv_V3f vecz = { 0,0,1 };
-	bsv_V3f vec1 = { 1,1,1 };
 
 	const float fpi = 3.14159265359f;
 

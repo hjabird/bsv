@@ -50,7 +50,6 @@ int testMat2d() {
 	bsv_V2d vec55 = { 5,5 };
 	bsv_V2d vecx = { 1,0 };
 	bsv_V2d vecy = { 0,1 };
-	bsv_V2d vec1 = { 1,1 };
 
 	const double fpi = 3.14159265359;
 
