@@ -189,42 +189,42 @@ int testMat4d() {
 	/* Rotation matrix */
 	TEST(bsv_V4d_abs(					/* About X axis - in YZ plane. */
 		bsv_V4d_minus(	
-			bsv_M4d_vmult(bsv_M4d_rotation(0.5 * fpi, 0), vecx), vecx))
+			bsv_M4d_vmult(bsv_M4d_grotation(0.5 * fpi, 0), vecx), vecx))
 		< 1e-6);
 	TEST(bsv_V4d_abs(
 		bsv_V4d_minus(
-			bsv_M4d_vmult(bsv_M4d_rotation(0.5 * fpi, 0), vecy), vecz))
+			bsv_M4d_vmult(bsv_M4d_grotation(0.5 * fpi, 0), vecy), vecz))
 		< 1e-6);
 	TEST(bsv_V4d_abs(
 			bsv_V4d_minus(
-				bsv_M4d_vmult(bsv_M4d_rotation(0.5 * fpi, 0), vecz), 
+				bsv_M4d_vmult(bsv_M4d_grotation(0.5 * fpi, 0), vecz), 
 				bsv_V4d_uminus(vecy)))
 		< 1e-6);
 	TEST(bsv_V4d_abs(					/* About Y axis - in XZ plane. */
 			bsv_V4d_minus(
-				bsv_M4d_vmult(bsv_M4d_rotation(0.5 * fpi, 1), vecx), 
+				bsv_M4d_vmult(bsv_M4d_grotation(0.5 * fpi, 1), vecx), 
 				bsv_V4d_uminus(vecz)))
 		< 1e-6);
 	TEST(bsv_V4d_abs(
 		bsv_V4d_minus(
-			bsv_M4d_vmult(bsv_M4d_rotation(0.5 * fpi, 1), vecy), vecy))
+			bsv_M4d_vmult(bsv_M4d_grotation(0.5 * fpi, 1), vecy), vecy))
 		< 1e-6);
 	TEST(bsv_V4d_abs(
 		bsv_V4d_minus(
-			bsv_M4d_vmult(bsv_M4d_rotation(0.5 * fpi, 1), vecz), vecx))
+			bsv_M4d_vmult(bsv_M4d_grotation(0.5 * fpi, 1), vecz), vecx))
 		< 1e-6);
 	TEST(bsv_V4d_abs(					/* About Z axis - in XY plane. */
 			bsv_V4d_minus(
-				bsv_M4d_vmult(bsv_M4d_rotation(0.5f * fpi, 2), vecx), vecy))
+				bsv_M4d_vmult(bsv_M4d_grotation(0.5f * fpi, 2), vecx), vecy))
 		< 1e-6);
 	TEST(bsv_V4d_abs(
 			bsv_V4d_minus(
-				bsv_M4d_vmult(bsv_M4d_rotation(0.5f * fpi, 2), vecy), 
+				bsv_M4d_vmult(bsv_M4d_grotation(0.5f * fpi, 2), vecy), 
 				bsv_V4d_uminus(vecx)))
 		< 1e-6);
 	TEST(bsv_V4d_abs(
 		bsv_V4d_minus(
-			bsv_M4d_vmult(bsv_M4d_rotation(0.5f * fpi, 2), vecz), vecz))
+			bsv_M4d_vmult(bsv_M4d_grotation(0.5f * fpi, 2), vecz), vecz))
 		< 1e-6);
 	/* convert to other precision */
 	TEST(bsv_M4f_isequal(bsv_M4d_toM4f(mat1234), fmat1234));
