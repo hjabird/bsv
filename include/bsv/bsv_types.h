@@ -1,9 +1,9 @@
-#ifndef BSV_H
-#define BSV_H
+#ifndef BSV_TYPES_H
+#define BSV_TYPES_H
 /*============================================================================
-bsv.h
+bsv_types.h
 
-Bird small vectors library.
+Structure definitions for small vectors / matrices library.
 
 Copyright(c) 2018-2019 HJA Bird
 
@@ -26,22 +26,56 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ============================================================================*/
 
-#include "bsv_types.h"
+/* Vectors -------------*/
 
-/* Vector methods */
-#include "bsv_V4d.h"
-#include "bsv_V4f.h"
-#include "bsv_V3d.h"
-#include "bsv_V3f.h"
-#include "bsv_V2d.h"
-#include "bsv_V2f.h"
+typedef struct bsv_V4f {
+	float x[4];
+} bsv_V4f;
 
-/* Matrix methods */
-#include "bsv_M4d.h"
-#include "bsv_M4f.h"
-#include "bsv_M3d.h"
-#include "bsv_M3f.h"
-#include "bsv_M2d.h"
-#include "bsv_M2f.h"
+typedef struct bsv_V4d {
+	double x[4];
+} bsv_V4d;
 
-#endif /* BSV_H */
+typedef struct bsv_V3f {
+	float x[3];
+} bsv_V3f;
+
+typedef struct bsv_V3d {
+	double x[3];
+} bsv_V3d;
+
+typedef struct bsv_V2f {
+	float x[2];
+} bsv_V2f;
+
+typedef struct bsv_V2d {
+	double x[2];
+} bsv_V2d;
+
+/* Matrices ------------*/
+
+typedef struct bsv_M4f {
+	float x[4][4];
+} bsv_M4f;
+
+typedef struct bsv_M4d {
+	double x[4][4];
+} bsv_M4d;
+
+typedef struct bsv_M3f {
+	float x[3][3];
+} bsv_M3f;
+
+typedef struct bsv_M3d {
+	double x[3][3];
+} bsv_M3d;
+
+typedef struct bsv_M2f {
+	float x[2][2];
+} bsv_M2f;
+
+typedef struct bsv_M2d {
+	double x[2][2];
+} bsv_M2d;
+
+#endif
