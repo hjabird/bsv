@@ -39,7 +39,7 @@ static inline bsv_V4d bsv_V4d_unit(const bsv_V4d self);
 static inline bsv_V4d bsv_V4d_zero(void);
 static inline int bsv_V4d_isequal(const bsv_V4d self, const bsv_V4d other);
 static inline int bsv_V4d_isnequal(const bsv_V4d self, const bsv_V4d other);
-static inline bsv_V4d bsv_V4d_toV4f(const bsv_V4d input);
+static inline bsv_V4f bsv_V4d_toV4f(const bsv_V4d input);
 
 /* IMPLEMENTATION ==========================================================*/
 #include <math.h>
@@ -152,13 +152,13 @@ int bsv_V4d_isnequal(const bsv_V4d self, const bsv_V4d other)
 	return !bsv_V4d_isequal(self, other);
 }
 
-bsv_V4d bsv_V4d_toV4d(const bsv_V4d input)
+bsv_V4f bsv_V4d_toV4f(const bsv_V4d input)
 {
-	bsv_V4d ret;
-	ret.x[0] = input.x[0];
-	ret.x[1] = input.x[1];
-	ret.x[2] = input.x[2];
-	ret.x[3] = input.x[3];
+	bsv_V4f ret;
+	ret.x[0] = (float)input.x[0];
+	ret.x[1] = (float)input.x[1];
+	ret.x[2] = (float)input.x[2];
+	ret.x[3] = (float)input.x[3];
 	return ret;
 }
 

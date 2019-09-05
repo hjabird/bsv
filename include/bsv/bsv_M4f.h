@@ -26,6 +26,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ============================================================================*/
 
+#include "bsv_types.h"
+
 static inline bsv_M4f bsv_M4f_zero(void);
 static inline bsv_M4f bsv_M4f_ones(void);
 static inline bsv_M4f bsv_M4f_identity(void);
@@ -38,7 +40,7 @@ static inline bsv_M4f bsv_M4f_minus(const bsv_M4f self, const bsv_M4f other);
 static inline bsv_M4f bsv_M4f_uminus(const bsv_M4f self);
 static inline bsv_M4f bsv_M4f_mult(const bsv_M4f self, const float multipler);
 static inline bsv_M4f bsv_M4f_div(const bsv_M4f self, const float div);
-static inline bsv_V4d bsv_V4d_vmult(const bsv_M4f self, const bsv_V4d other);
+static inline bsv_V4f bsv_M4f_vmult(const bsv_M4f self, const bsv_V4f other);
 static inline bsv_M4f bsv_M4f_mmult(const bsv_M4f self, const bsv_M4f other);
 static inline float bsv_M4f_norm(const bsv_M4f self);
 static inline float bsv_M4f_det(const bsv_M4f self);
@@ -86,7 +88,7 @@ static inline bsv_M4f bsv_M4f_grotation(
 	assert(axis >= 0);	/* axis 0 is X */
 	assert(axis < 4);	/* axis 3 is W */
 	bsv_M4f ret = bsv_M4f_identity();
-	float c = cos(rad_angle), s = sin(rad_angle);
+	float c = cosf(rad_angle), s = sinf(rad_angle);
 	switch (axis) {
 	case 0:
 		ret.x[1][1] = c;
@@ -247,7 +249,7 @@ static inline float bsv_M4f_norm(const bsv_M4f self)
 			ret += self.x[i][j] * self.x[i][j];
 		}
 	}
-	return sqrt(ret);
+	return sqrtf(ret);
 }
 
 static inline float bsv_M4f_det(const bsv_M4f self)
@@ -335,7 +337,7 @@ static inline bsv_M4f bsv_M4f_inv(const bsv_M4f self)
 	}
 	/* Now, normalise each row to have zero on the diagonal. */
 	for (i = 0; i < 4; ++i) {
-		rowmult = 1. / cpy.x[i][i];
+		rowmult = 1.f / cpy.x[i][i];
 		for (j = 0; j < 4; ++j) {
 			cpy.x[i][j] *= rowmult;
 			ret.x[i][j] *= rowmult;

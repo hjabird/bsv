@@ -83,10 +83,10 @@ int testMat4f() {
 						2,3,4,1,
 						4,3,2,1,
 						3,1,1,2	};
-	bsv_M4f invmat1234 = {	-.25,	.125,	-.125,	.5,
-							.4,		-.5,	.9,		-1.,
-							-.25,	.625,	-.625,	.5,
-							.3,		-.25,	.05,	0.0	};
+	bsv_M4f invmat1234 = {	-.25f,	.125f,	-.125f,	.5f,
+							.4f,	-.5f,	.9f,	-1.f,
+							-.25f,	.625f,	-.625f,	.5f,
+							.3f,	-.25f,	.05f,	0.0f};
 	bsv_M4f mat1223 = { 0,1,0,0,
 						0,0,1,0,
 						0,0,0,0,
@@ -107,7 +107,7 @@ int testMat4f() {
 	bsv_V4f vecy = { 0,1,0,0 };
 	bsv_V4f vecz = { 0,0,1,0 };
 
-	const double fpi = 3.14159265359;
+	const float fpi = 3.14159265359f;
 
 	/* Reading back works */
 	TEST(mat0.x[0][0] == 0.);
@@ -189,39 +189,39 @@ int testMat4f() {
 	/* Rotation matrix */
 	TEST(bsv_V4f_abs(					/* About X axis - in YZ plane. */
 		bsv_V4f_minus(	
-			bsv_M4f_vmult(bsv_M4f_grotation(0.5 * fpi, 0), vecx), vecx))
-		< 1e-6);
+			bsv_M4f_vmult(bsv_M4f_grotation(0.5f * fpi, 0), vecx), vecx))
+		< 1e-6f);
 	TEST(bsv_V4f_abs(
 		bsv_V4f_minus(
-			bsv_M4f_vmult(bsv_M4f_grotation(0.5 * fpi, 0), vecy), vecz))
-		< 1e-6);
+			bsv_M4f_vmult(bsv_M4f_grotation(0.5f * fpi, 0), vecy), vecz))
+		< 1e-6f);
 	TEST(bsv_V4f_abs(
 			bsv_V4f_minus(
-				bsv_M4f_vmult(bsv_M4f_grotation(0.5 * fpi, 0), vecz), 
+				bsv_M4f_vmult(bsv_M4f_grotation(0.5f * fpi, 0), vecz), 
 				bsv_V4f_uminus(vecy)))
-		< 1e-6);
+		< 1e-6f);
 	TEST(bsv_V4f_abs(					/* About Y axis - in XZ plane. */
 			bsv_V4f_minus(
-				bsv_M4f_vmult(bsv_M4f_grotation(0.5 * fpi, 1), vecx), 
+				bsv_M4f_vmult(bsv_M4f_grotation(0.5f * fpi, 1), vecx), 
 				bsv_V4f_uminus(vecz)))
-		< 1e-6);
+		< 1e-6f);
 	TEST(bsv_V4f_abs(
 		bsv_V4f_minus(
-			bsv_M4f_vmult(bsv_M4f_grotation(0.5 * fpi, 1), vecy), vecy))
-		< 1e-6);
+			bsv_M4f_vmult(bsv_M4f_grotation(0.5f * fpi, 1), vecy), vecy))
+		< 1e-6f);
 	TEST(bsv_V4f_abs(
 		bsv_V4f_minus(
-			bsv_M4f_vmult(bsv_M4f_grotation(0.5 * fpi, 1), vecz), vecx))
-		< 1e-6);
+			bsv_M4f_vmult(bsv_M4f_grotation(0.5f * fpi, 1), vecz), vecx))
+		< 1e-6f);
 	TEST(bsv_V4f_abs(					/* About Z axis - in XY plane. */
 			bsv_V4f_minus(
 				bsv_M4f_vmult(bsv_M4f_grotation(0.5f * fpi, 2), vecx), vecy))
-		< 1e-6);
+		< 1e-6f);
 	TEST(bsv_V4f_abs(
 			bsv_V4f_minus(
 				bsv_M4f_vmult(bsv_M4f_grotation(0.5f * fpi, 2), vecy), 
 				bsv_V4f_uminus(vecx)))
-		< 1e-6);
+		< 1e-6f);
 	TEST(bsv_V4f_abs(
 		bsv_V4f_minus(
 			bsv_M4f_vmult(bsv_M4f_grotation(0.5f * fpi, 2), vecz), vecz))
