@@ -354,7 +354,7 @@ int bV2d_zero_loop2048(double* rands) {
 }
 
 int benchVec2d(double* drand){
-	benchd(bV2d_abs,					100000,		"V2d abs [no loop]", drand);
+	benchd(bV2d_abs,					1000000,	"V2d abs [no loop]", drand);
 	benchd(bV2d_abs_loop16,				100000,		"V2d abs [loop serial 16]", drand);
 	benchd(bV2d_abs_loop2048,			1000,		"V2d abs [loop serial 2048]", drand);
 	benchd(bV2d_dot,					100000000,	"V2d dot [no loop]", drand);

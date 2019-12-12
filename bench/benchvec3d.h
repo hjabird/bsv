@@ -421,7 +421,7 @@ int bV3d_zero_loop2048(double* rands) {
 }
 
 int benchVec3d(double* drand){
-	benchd(bV3d_abs,					100000,		"V3d abs [no loop]", drand);
+	benchd(bV3d_abs,					1000000,	"V3d abs [no loop]", drand);
 	benchd(bV3d_abs_loop16,				100000,		"V3d abs [loop serial 16]", drand);
 	benchd(bV3d_abs_loop2048,			1000,		"V3d abs [loop serial 2048]", drand);
 	benchd(bV3d_dot,					100000000,	"V3d dot [no loop]", drand);
@@ -449,7 +449,7 @@ int benchVec3d(double* drand){
 	benchd(bV3d_div_loop16,				10000000,	"V3d div [loop serial 16]", drand);
 	benchd(bV3d_div_loop2048,			100000,		"V3d div [loop serial 2048]", drand);
 	benchd(bV3d_zero,					100000000,	"V3d zero [no loop]", drand);
-	benchd(bV3d_zero_loop16,			10000000,	"V3d zero [loop serial 16]", drand);
+	benchd(bV3d_zero_loop16,			100000000,	"V3d zero [loop serial 16]", drand);
 	benchd(bV3d_zero_loop2048,			100000,		"V3d zero [loop serial 2048]", drand);
     return 0;
 }

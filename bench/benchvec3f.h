@@ -421,7 +421,7 @@ int bV3f_zero_loop2048(float* rands) {
 }
 
 int benchVec3f(float* frand){
-	benchf(bV3f_abs,					100000,		"V3f abs [no loop]", frand);
+	benchf(bV3f_abs,					1000000,	"V3f abs [no loop]", frand);
 	benchf(bV3f_abs_loop16,				100000,		"V3f abs [loop serial 16]", frand);
 	benchf(bV3f_abs_loop2048,			1000,		"V3f abs [loop serial 2048]", frand);
 	benchf(bV3f_dot,					100000000,	"V3f dot [no loop]", frand);
@@ -449,7 +449,7 @@ int benchVec3f(float* frand){
 	benchf(bV3f_div_loop16,				10000000,	"V3f div [loop serial 16]", frand);
 	benchf(bV3f_div_loop2048,			100000,		"V3f div [loop serial 2048]", frand);
 	benchf(bV3f_zero,					100000000,	"V3f zero [no loop]", frand);
-	benchf(bV3f_zero_loop16,			10000000,	"V3f zero [loop serial 16]", frand);
+	benchf(bV3f_zero_loop16,			100000000,	"V3f zero [loop serial 16]", frand);
 	benchf(bV3f_zero_loop2048,			100000,		"V3f zero [loop serial 2048]", frand);
     return 0;
 }

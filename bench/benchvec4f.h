@@ -398,7 +398,7 @@ int bV4f_zero_loop2048(float* rands) {
 }
 
 int benchVec4f(float* frand){
-	benchf(bV4f_abs,					100000,		"V4f abs [no loop]", frand);
+	benchf(bV4f_abs,					1000000,	"V4f abs [no loop]", frand);
 	benchf(bV4f_abs_loop16,				100000,		"V4f abs [loop serial 16]", frand);
 	benchf(bV4f_abs_loop2048,			1000,		"V4f abs [loop serial 2048]", frand);
 	benchf(bV4f_dot,					100000000,	"V4f dot [no loop]", frand);
