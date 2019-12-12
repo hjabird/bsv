@@ -332,7 +332,7 @@ int bV2d_zero(double* rands) {
 int bV2d_zero_loop16(double* rands) {
 	int i = 0;
 	double s = 0;
-	bsv_V2d a, c;
+	bsv_V2d c;
 	for (i = 0; i < 16; ++i) {
 		c = bsv_V2d_zero();
 		s += c.x[1] + c.x[0];
@@ -344,7 +344,7 @@ int bV2d_zero_loop16(double* rands) {
 int bV2d_zero_loop2048(double* rands) {
 	int i = 0;
 	double s = 0;
-	bsv_V2d a, c;
+	bsv_V2d c;
 	for (i = 0; i < 2048; i += 1) {
 		c = bsv_V2d_zero();
 		s += c.x[1] + c.x[0];
