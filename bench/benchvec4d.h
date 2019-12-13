@@ -43,7 +43,7 @@ int bV4d_abs_loop16(double* rands) {
 		a.x[0] = rands[i * 4];
 		a.x[1] = rands[i * 4 + 1];
 		a.x[2] = rands[i * 4 + 2];
-		a.x[2] = rands[i * 4 + 3];
+		a.x[3] = rands[i * 4 + 3];
 		s += bsv_V4d_abs(a);
 	}
 	sinkd = s;
@@ -58,7 +58,7 @@ int bV4d_abs_loop2048(double* rands) {
 		a.x[0] = rands[i * 4];
 		a.x[1] = rands[i * 4 + 1];
 		a.x[2] = rands[i * 4 + 2];
-		a.x[2] = rands[i * 4 + 3];
+		a.x[3] = rands[i * 4 + 3];
 		s += bsv_V4d_abs(a);
 	}
 	sinkd = s;
@@ -80,11 +80,11 @@ int bV4d_dot_loop16(double* rands) {
 		a.x[0] = rands[i * 8];
 		a.x[1] = rands[i * 8 + 1];
 		a.x[2] = rands[i * 8 + 2];
-		a.x[2] = rands[i * 8 + 3];
+		a.x[3] = rands[i * 8 + 3];
 		b.x[0] = rands[i * 8 + 4];
 		b.x[1] = rands[i * 8 + 5];
 		b.x[2] = rands[i * 8 + 6];
-		b.x[2] = rands[i * 8 + 7];
+		b.x[3] = rands[i * 8 + 7];
 		s += bsv_V4d_dot(a, b);
 	}
 	sinkd = s;
@@ -99,11 +99,11 @@ int bV4d_dot_loop2048(double* rands) {
 		a.x[0] = rands[i * 8];
 		a.x[1] = rands[i * 8 + 1];
 		a.x[2] = rands[i * 8 + 2];
-		a.x[2] = rands[i * 8 + 3];
+		a.x[3] = rands[i * 8 + 3];
 		b.x[0] = rands[i * 8 + 4];
 		b.x[1] = rands[i * 8 + 5];
 		b.x[2] = rands[i * 8 + 6];
-		b.x[2] = rands[i * 8 + 7];
+		b.x[3] = rands[i * 8 + 7];
 		s += bsv_V4d_dot(a, b);
 	}
 	sinkd = s;
@@ -126,11 +126,11 @@ int bV4d_plus_loop16(double* rands) {
 		a.x[0] = rands[i * 8];
 		a.x[1] = rands[i * 8 + 1];
 		a.x[2] = rands[i * 8 + 2];
-		a.x[2] = rands[i * 8 + 3];
+		a.x[3] = rands[i * 8 + 3];
 		b.x[0] = rands[i * 8 + 4];
 		b.x[1] = rands[i * 8 + 5];
 		b.x[2] = rands[i * 8 + 6];
-		b.x[2] = rands[i * 8 + 7];
+		b.x[3] = rands[i * 8 + 7];
 		c = bsv_V4d_plus(a, b);
 		s += c.x[0] + c.x[1] + c.x[2] + c.x[3];
 	}
@@ -146,11 +146,11 @@ int bV4d_plus_loop2048(double* rands) {
 		a.x[0] = rands[i * 8];
 		a.x[1] = rands[i * 8 + 1];
 		a.x[2] = rands[i * 8 + 2];
-		a.x[2] = rands[i * 8 + 3];
+		a.x[3] = rands[i * 8 + 3];
 		b.x[0] = rands[i * 8 + 4];
 		b.x[1] = rands[i * 8 + 5];
 		b.x[2] = rands[i * 8 + 6];
-		b.x[2] = rands[i * 8 + 7];
+		b.x[3] = rands[i * 8 + 7];
 		c = bsv_V4d_plus(a, b);
 		s += c.x[0] + c.x[1] + c.x[2] + c.x[3];
 	}
@@ -174,11 +174,11 @@ int bV4d_minus_loop16(double* rands) {
 		a.x[0] = rands[i * 8];
 		a.x[1] = rands[i * 8 + 1];
 		a.x[2] = rands[i * 8 + 2];
-		a.x[2] = rands[i * 8 + 3];
+		a.x[3] = rands[i * 8 + 3];
 		b.x[0] = rands[i * 8 + 4];
 		b.x[1] = rands[i * 8 + 5];
 		b.x[2] = rands[i * 8 + 6];
-		b.x[2] = rands[i * 8 + 7];
+		b.x[3] = rands[i * 8 + 7];
 		c = bsv_V4d_minus(a, b);
 		s += c.x[0] + c.x[1] + c.x[2] + c.x[3];
 	}
@@ -194,11 +194,11 @@ int bV4d_minus_loop2048(double* rands) {
 		a.x[0] = rands[i * 8];
 		a.x[1] = rands[i * 8 + 1];
 		a.x[2] = rands[i * 8 + 2];
-		a.x[2] = rands[i * 8 + 3];
+		a.x[3] = rands[i * 8 + 3];
 		b.x[0] = rands[i * 8 + 4];
 		b.x[1] = rands[i * 8 + 5];
 		b.x[2] = rands[i * 8 + 6];
-		b.x[2] = rands[i * 8 + 7];
+		b.x[3] = rands[i * 8 + 7];
 		c = bsv_V4d_minus(a, b);
 		s += c.x[0] + c.x[1] + c.x[2] + c.x[3];
 	}
@@ -221,7 +221,7 @@ int bV4d_uminus_loop16(double* rands) {
 		a.x[0] = rands[i * 4];
 		a.x[1] = rands[i * 4 + 1];
 		a.x[2] = rands[i * 4 + 2];
-		a.x[2] = rands[i * 4 + 3];
+		a.x[3] = rands[i * 4 + 3];
 		c = bsv_V4d_uminus(a);
 		s += c.x[0] + c.x[1] + c.x[2] + c.x[3];
 	}
@@ -233,11 +233,11 @@ int bV4d_uminus_loop2048(double* rands) {
 	int i = 0;
 	double s = 0;
 	bsv_V4d a, c;
-	for (i = 0; i < 2048; i += 1) {
+	for (i = 0; i < 2048; ++i) {
 		a.x[0] = rands[i * 4];
 		a.x[1] = rands[i * 4 + 1];
 		a.x[2] = rands[i * 4 + 2];
-		a.x[2] = rands[i * 4 + 3];
+		a.x[3] = rands[i * 4 + 3];
 		c = bsv_V4d_uminus(a);
 		s += c.x[0] + c.x[1] + c.x[2] + c.x[3];
 	}
@@ -260,7 +260,7 @@ int bV4d_mult_loop16(double* rands) {
 		a.x[0] = rands[i * 4];
 		a.x[1] = rands[i * 4 + 1];
 		a.x[2] = rands[i * 4 + 2];
-		a.x[2] = rands[i * 4 + 3];
+		a.x[3] = rands[i * 4 + 3];
 		m = rands[i * 3 + 2];
 		c = bsv_V4d_mult(a, m);
 		s += c.x[0] + c.x[1] + c.x[2] + c.x[3];
@@ -277,7 +277,7 @@ int bV4d_mult_loop2048(double* rands) {
 		a.x[0] = rands[i * 4];
 		a.x[1] = rands[i * 4 + 1];
 		a.x[2] = rands[i * 4 + 2];
-		a.x[2] = rands[i * 4 + 3];
+		a.x[3] = rands[i * 4 + 3];
 		m = rands[i * 3 + 2];
 		c = bsv_V4d_mult(a, m);
 		s += c.x[0] + c.x[1] + c.x[2] + c.x[3];
@@ -301,7 +301,7 @@ int bV4d_div_loop16(double* rands) {
 		a.x[0] = rands[i * 4];
 		a.x[1] = rands[i * 4 + 1];
 		a.x[2] = rands[i * 4 + 2];
-		a.x[2] = rands[i * 4 + 3];
+		a.x[3] = rands[i * 4 + 3];
 		m = rands[i * 3 + 2];
 		c = bsv_V4d_div(a, m);
 		s += c.x[0] + c.x[1] + c.x[2] + c.x[3];
@@ -318,7 +318,7 @@ int bV4d_div_loop2048(double* rands) {
 		a.x[0] = rands[i * 4];
 		a.x[1] = rands[i * 4 + 1];
 		a.x[2] = rands[i * 4 + 2];
-		a.x[2] = rands[i * 4 + 3];
+		a.x[3] = rands[i * 4 + 3];
 		m = rands[i * 3 + 2];
 		c = bsv_V4d_div(a, m);
 		s += c.x[0] + c.x[1] + c.x[2] + c.x[3];
@@ -342,7 +342,7 @@ int bV4d_unit_loop16(double* rands) {
 		a.x[0] = rands[i * 4];
 		a.x[1] = rands[i * 4 + 1];
 		a.x[2] = rands[i * 4 + 2];
-		a.x[2] = rands[i * 4 + 3];
+		a.x[3] = rands[i * 4 + 3];
 		c = bsv_V4d_unit(a);
 		s += c.x[0] + c.x[1] + c.x[2] + c.x[3];
 	}
@@ -358,7 +358,7 @@ int bV4d_unit_loop2048(double* rands) {
 		a.x[0] = rands[i * 4];
 		a.x[1] = rands[i * 4 + 1];
 		a.x[2] = rands[i * 4 + 2];
-		a.x[2] = rands[i * 4 + 3];
+		a.x[3] = rands[i * 4 + 3];
 		c = bsv_V4d_unit(a);
 		s += c.x[0] + c.x[1] + c.x[2] + c.x[3];
 	}
