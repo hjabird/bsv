@@ -48,9 +48,9 @@ static inline bsv_V3f bsv_V3d_toV3f(const bsv_V3d input);
 double bsv_V3d_abs(const bsv_V3d self)
 {
 	double a, b, c;
-	a = pow(self.x[0], 2);
-	b = pow(self.x[1], 2);
-	c = pow(self.x[2], 2);
+	a = self.x[0] * self.x[0];
+	b = self.x[1] * self.x[1];
+	c = self.x[2] * self.x[2];
 	return sqrt(a + b + c);
 }
 

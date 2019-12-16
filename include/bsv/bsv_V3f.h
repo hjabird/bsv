@@ -48,9 +48,9 @@ static inline bsv_V3d bsv_V3f_toV3d(const bsv_V3f input);
 float bsv_V3f_abs(const bsv_V3f self)
 {
 	float a, b, c;
-	a = powf(self.x[0], 2);
-	b = powf(self.x[1], 2);
-	c = powf(self.x[2], 2);
+	a = self.x[0] * self.x[0];
+	b = self.x[1] * self.x[1];
+	c = self.x[2] * self.x[2];
 	return sqrtf(a + b + c);
 }
 

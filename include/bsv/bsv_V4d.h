@@ -47,10 +47,10 @@ static inline bsv_V4f bsv_V4d_toV4f(const bsv_V4d input);
 double bsv_V4d_abs(const bsv_V4d self)
 {
 	double a, b, c, d;
-	a = pow(self.x[0], 2);
-	b = pow(self.x[1], 2);
-	c = pow(self.x[2], 2);
-	d = pow(self.x[3], 2);
+	a = self.x[0] * self.x[0];
+	b = self.x[1] * self.x[1];
+	c = self.x[2] * self.x[2];
+	d = self.x[3] * self.x[3];
 	return sqrt(a + b + c + d);
 }
 
