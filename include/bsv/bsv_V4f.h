@@ -42,7 +42,7 @@ static inline int bsv_V4f_isnequal(const bsv_V4f self, const bsv_V4f other);
 static inline bsv_V4d bsv_V4f_toV4d(const bsv_V4f input);
 
 /* IMPLEMENTATION ==========================================================*/
-#include <math.h>
+#include "bsv_fast_maths.h"
 
 float bsv_V4f_abs(const bsv_V4f self)
 {
@@ -51,7 +51,7 @@ float bsv_V4f_abs(const bsv_V4f self)
 	b = self.x[1] * self.x[1];
 	c = self.x[2] * self.x[2];
 	d = self.x[3] * self.x[3];
-	return sqrtf(a + b + c + d);
+	return bsv_internals_sqrtf(a + b + c + d);
 }
 
 float bsv_V4f_dot(const bsv_V4f self, const bsv_V4f other)

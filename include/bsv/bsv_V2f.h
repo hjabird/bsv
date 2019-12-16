@@ -42,14 +42,14 @@ static inline int bsv_V2f_isnequal(const bsv_V2f self, const bsv_V2f other);
 static inline bsv_V2d bsv_V2f_toV2d(const bsv_V2f input);
 
 /* IMPLEMENTATION ==========================================================*/
-#include <math.h>
+#include "bsv_fast_maths.h"
 
 float bsv_V2f_abs(const bsv_V2f self)
 {
 	float a, b;
 	a = self.x[0] * self.x[0];
 	b = self.x[1] * self.x[1];
-	return sqrtf(a + b);
+	return bsv_internals_sqrtf(a + b);
 }
 
 float bsv_V2f_dot(const bsv_V2f self, const bsv_V2f other)
