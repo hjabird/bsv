@@ -350,9 +350,9 @@ int bM3d_vmult_loop16(double* rands) {
 		a = bM3d_from_arr(rands + 12 * i);
 		b.x[0] = rands[12 * i + 9];
 		b.x[1] = rands[12 * i + 10];
-		b.x[1] = rands[12 * i + 11];
+		b.x[2] = rands[12 * i + 11];
 		b = bsv_M3d_vmult(a, b);
-		s += b.x[0] + b.x[1];
+		s += b.x[0] + b.x[1] + b.x[2];
 	}
 	sinkd = s;
 	return 16;
@@ -367,9 +367,9 @@ int bM3d_vmult_loop2048(double* rands) {
 		a = bM3d_from_arr(rands + 12 * i);
 		b.x[0] = rands[12 * i + 9];
 		b.x[1] = rands[12 * i + 10];
-		b.x[1] = rands[12 * i + 11];
+		b.x[2] = rands[12 * i + 11];
 		b = bsv_M3d_vmult(a, b);
-		s += b.x[0] + b.x[1];
+		s += b.x[0] + b.x[1] + b.x[2];
 	}
 	sinkd = s;
 	return 2048;
