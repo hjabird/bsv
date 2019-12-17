@@ -47,8 +47,8 @@ static inline bsv_V2d bsv_V2f_toV2d(const bsv_V2f input);
 float bsv_V2f_abs(const bsv_V2f self)
 {
 	float a, b;
-	a = powf(self.x[0], 2);
-	b = powf(self.x[1], 2);
+	a = self.x[0] * self.x[0];
+	b = self.x[1] * self.x[1];
 	return sqrtf(a + b);
 }
 
