@@ -58,9 +58,9 @@ int create_rand_array(float** randf, double** randd);
 #include "benchvec4f.h"
 #include "benchvec4d.h"
 
-/*#include "benchmat2f.h"
+#include "benchmat2f.h"
 #include "benchmat2d.h"
-#include "benchmat3f.h"
+/*#include "benchmat3f.h"
 #include "benchmat3d.h"
 #include "benchmat4f.h"
 #include "benchmat4d.h"*/
@@ -81,9 +81,9 @@ int main(int argc, char* argv[]) {
     benchVec3d(drand); 
 	benchVec4f(frand);
 	benchVec4d(drand);
-	/*benchMat2f(frand);
+	benchMat2f(frand);
 	benchMat2d(drand);
-	benchMat3f(frand);
+	/*benchMat3f(frand);
 	benchMat3d(drand);
 	benchMat4f(frand);
 	benchMat4d(drand);*/
@@ -151,7 +151,7 @@ void benchd(int (*test_fn)(double*), int repeats, char* name, double* rand_array
 }
 
 int parse_command_args(int argc, char* argv[]) {
-	char available_types[] = "V2f V3f V4f V2d V3d V4d";
+	char available_types[] = "V2f V3f V4f V2d V3d V4d M2f M2d";
 	char available_funcs[] =	"abs cross det div dot minus mult "
 								"uminus unit zero";
 
@@ -173,6 +173,11 @@ int parse_command_args(int argc, char* argv[]) {
 				else if(token_in_string(argv[i], available_types)){
 					strcat(test_types, argv[i]);
 					strcat(test_types, " ");
+				}
+				else {
+					printf("Unknown type %s. Known types are %s.\n",
+						argv[i], available_types);
+					good = 0; break;
 				}
 			}
 		}
