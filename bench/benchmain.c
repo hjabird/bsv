@@ -60,9 +60,9 @@ int create_rand_array(float** randf, double** randd);
 
 #include "benchmat2f.h"
 #include "benchmat2d.h"
-/*#include "benchmat3f.h"
+#include "benchmat3f.h"
 #include "benchmat3d.h"
-#include "benchmat4f.h"
+/*#include "benchmat4f.h"
 #include "benchmat4d.h"*/
 
 int main(int argc, char* argv[]) {
@@ -83,9 +83,9 @@ int main(int argc, char* argv[]) {
 	benchVec4d(drand);
 	benchMat2f(frand);
 	benchMat2d(drand);
-	/*benchMat3f(frand);
+	benchMat3f(frand);
 	benchMat3d(drand);
-	benchMat4f(frand);
+	/*benchMat4f(frand);
 	benchMat4d(drand);*/
 	
 	free(drand);
@@ -101,6 +101,9 @@ void benchf(int (*test_fn)(float*), int repeats, char* name, float* rand_array) 
 	double dmsecpc, *results;
 	if (!should_run_test(name)) { return; }
 	results = malloc(sizeof(double) * test_repeats);
+#if _DEBUG
+	repeats = repeats / 100;
+#endif
 	/* Warm up caches, avx or anything... */
 	for (i = 0; i < 100; ++i) {
 		sumwm += (*test_fn)(rand_array);
@@ -129,6 +132,9 @@ void benchd(int (*test_fn)(double*), int repeats, char* name, double* rand_array
 	double dmsecpc, * results;
 	if (!should_run_test(name)) { return; }
 	results = malloc(sizeof(double) * test_repeats);
+#if _DEBUG
+	repeats = repeats / 100;
+#endif
 	/* Warm up caches */
 	for (i = 0; i < 10; ++i) {
 		sumwm += (*test_fn)(rand_array);
@@ -151,9 +157,9 @@ void benchd(int (*test_fn)(double*), int repeats, char* name, double* rand_array
 }
 
 int parse_command_args(int argc, char* argv[]) {
-	char available_types[] = "V2f V3f V4f V2d V3d V4d M2f M2d";
-	char available_funcs[] =	"abs cross det div dot minus mult "
-								"uminus unit zero";
+	char available_types[] = "V2f V3f V4f V2d V3d V4d M2f M3f M4f M2d M3d M4d";
+	char available_funcs[] = "abs cross det div dot identity inv minus mmult "
+		"mult norm ones plus rotation scale transpose uminus unit vmult zero";
 
 	test_repeats = 1;
 	strcpy(test_types, "");
