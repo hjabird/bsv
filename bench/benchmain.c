@@ -62,8 +62,8 @@ int create_rand_array(float** randf, double** randd);
 #include "benchmat2d.h"
 #include "benchmat3f.h"
 #include "benchmat3d.h"
-/*#include "benchmat4f.h"
-#include "benchmat4d.h"*/
+#include "benchmat4f.h"
+#include "benchmat4d.h"
 
 int main(int argc, char* argv[]) {
 	if (!parse_command_args(argc, argv)){
@@ -85,8 +85,8 @@ int main(int argc, char* argv[]) {
 	benchMat2d(drand);
 	benchMat3f(frand);
 	benchMat3d(drand);
-	/*benchMat4f(frand);
-	benchMat4d(drand);*/
+	benchMat4f(frand);
+	benchMat4d(drand);
 	
 	free(drand);
 	free(frand);
