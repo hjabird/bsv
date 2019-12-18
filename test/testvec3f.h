@@ -90,10 +90,32 @@ int testVec3f(){
     TEST(bsv_V3f_isequal(
         bsv_V3f_cross(vec1, vecxy), vecmxy));
     /* Unit */
-    TEST(bsv_V3f_isequal(
-        bsv_V3f_unit(vecx), vecx));
-    TEST(bsv_V3f_isequal(
-        bsv_V3f_unit(vec2), vecunit));
+	TEST(bsv_V3f_isequal(
+		bsv_V3f_unit(vecx), vecx));
+	TEST(bsv_V3f_abs(bsv_V3f_minus(
+		bsv_V3f_unit(vec2), vecunit)) < 1e-16);
+	TEST(bsv_V3f_abs(bsv_V3f_minus(
+		bsv_V3f_unit(bsv_V3f_mult(vec2, 2.)), vecunit)) < 1e-16);
+	TEST(bsv_V3f_abs(bsv_V3f_minus(
+		bsv_V3f_unit(bsv_V3f_mult(vec2, 1000.)), vecunit)) < 1e-16);
+	TEST(bsv_V3f_abs(bsv_V3f_minus(
+		bsv_V3f_unit(bsv_V3f_mult(vec2, 1e10)),
+		bsv_V3f_mult(vecunit, 1.))) < 1e-16);
+	TEST(bsv_V3f_abs(bsv_V3f_minus(
+		bsv_V3f_unit(bsv_V3f_mult(vec2, 1e-10)),
+		bsv_V3f_mult(vecunit, 1.))) < 1e-16);
+	TEST(bsv_V3f_abs(bsv_V3f_minus(
+		bsv_V3f_unit(bsv_V3f_mult(vec2, -2.)),
+		bsv_V3f_mult(vecunit, -1.))) < 1e-16);
+	TEST(bsv_V3f_abs(bsv_V3f_minus(
+		bsv_V3f_unit(bsv_V3f_mult(vec2, -1000.)),
+		bsv_V3f_mult(vecunit, -1.))) < 1e-16);
+	TEST(bsv_V3f_abs(bsv_V3f_minus(
+		bsv_V3f_unit(bsv_V3f_mult(vec2, -1e10)),
+		bsv_V3f_mult(vecunit, -1.))) < 1e-16);
+	TEST(bsv_V3f_abs(bsv_V3f_minus(
+		bsv_V3f_unit(bsv_V3f_mult(vec2, -1e-10)),
+		bsv_V3f_mult(vecunit, -1.))) < 1e-16);
     return 0;
 }
 #endif /* BSV_TEST_VEC3F_H */

@@ -82,8 +82,30 @@ int testVec4f() {
 	/* Unit */
 	TEST(bsv_V4f_isequal(
 		bsv_V4f_unit(vecx), vecx));
-	TEST(bsv_V4f_isequal(
-		bsv_V4f_unit(vec2), vecunit));
+	TEST(bsv_V4f_abs(bsv_V4f_minus(
+		bsv_V4f_unit(vec2), vecunit)) < 1e-15);
+	TEST(bsv_V4f_abs(bsv_V4f_minus(
+		bsv_V4f_unit(bsv_V4f_mult(vec2, 2.)), vecunit)) < 1e-15);
+	TEST(bsv_V4f_abs(bsv_V4f_minus(
+		bsv_V4f_unit(bsv_V4f_mult(vec2, 1000.)), vecunit)) < 1e-15);
+	TEST(bsv_V4f_abs(bsv_V4f_minus(
+		bsv_V4f_unit(bsv_V4f_mult(vec2, 1e10)),
+		bsv_V4f_mult(vecunit, 1.))) < 1e-15);
+	TEST(bsv_V4f_abs(bsv_V4f_minus(
+		bsv_V4f_unit(bsv_V4f_mult(vec2, 1e-10)),
+		bsv_V4f_mult(vecunit, 1.))) < 1e-15);
+	TEST(bsv_V4f_abs(bsv_V4f_minus(
+		bsv_V4f_unit(bsv_V4f_mult(vec2, -2.)),
+		bsv_V4f_mult(vecunit, -1.))) < 1e-15);
+	TEST(bsv_V4f_abs(bsv_V4f_minus(
+		bsv_V4f_unit(bsv_V4f_mult(vec2, -1000.)),
+		bsv_V4f_mult(vecunit, -1.))) < 1e-15);
+	TEST(bsv_V4f_abs(bsv_V4f_minus(
+		bsv_V4f_unit(bsv_V4f_mult(vec2, -1e10)),
+		bsv_V4f_mult(vecunit, -1.))) < 1e-15);
+	TEST(bsv_V4f_abs(bsv_V4f_minus(
+		bsv_V4f_unit(bsv_V4f_mult(vec2, -1e-10)),
+		bsv_V4f_mult(vecunit, -1.))) < 1e-15);
 	/* Zero */
 	TEST(bsv_V4f_isequal(
 		bsv_V4f_zero(), vec0));
