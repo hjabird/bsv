@@ -35,7 +35,7 @@ int testVec2f(){
     bsv_V2f vec1 = {1,1};
     bsv_V2f vecm1 = {-1,-1};
     bsv_V2f vec2 = {2,2};
-    bsv_V2f vecunit = {sqrtf(1.f/2),sqrtf(1.f/2)};
+    bsv_V2f vecunit = {(float)sqrt(1.f/2.f),(float)sqrt(1.f/2.f)};
     bsv_V2f vecx = {1,0};
     bsv_V2f vecy = {0,1};;
 
@@ -76,6 +76,28 @@ int testVec2f(){
         bsv_V2f_unit(vecx), vecx));
     TEST(bsv_V2f_isequal(
         bsv_V2f_unit(vec2), vecunit));
+	TEST(bsv_V2f_isequal(
+		bsv_V2f_unit(bsv_V2f_mult(vec2, 2.f)), vecunit));
+	TEST(bsv_V2f_isequal(
+		bsv_V2f_unit(bsv_V2f_mult(vec2, 1000.f)), vecunit));
+	TEST(bsv_V2f_isequal(
+		bsv_V2f_unit(bsv_V2f_mult(vec2, 1e10f)),
+		bsv_V2f_mult(vecunit, 1.f)));
+	TEST(bsv_V2f_isequal(
+		bsv_V2f_unit(bsv_V2f_mult(vec2, 1e-10f)),
+		bsv_V2f_mult(vecunit, 1.f)));
+	TEST(bsv_V2f_isequal(
+		bsv_V2f_unit(bsv_V2f_mult(vec2, -2.f)), 
+		bsv_V2f_mult(vecunit, -1.f)));
+	TEST(bsv_V2f_isequal(
+		bsv_V2f_unit(bsv_V2f_mult(vec2, -1000.f)),
+		bsv_V2f_mult(vecunit, -1.f)));
+	TEST(bsv_V2f_isequal(
+		bsv_V2f_unit(bsv_V2f_mult(vec2, -1e10f)),
+		bsv_V2f_mult(vecunit, -1.f)));
+	TEST(bsv_V2f_isequal(
+		bsv_V2f_unit(bsv_V2f_mult(vec2, -1e-10f)),
+		bsv_V2f_mult(vecunit, -1.f)));
     return 0;
 }
 #endif /* BSV_TEST_VEC3F_H */

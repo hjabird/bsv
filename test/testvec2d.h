@@ -71,10 +71,32 @@ int testVec2d(){
     TEST(bsv_V2d_dot(vecx, vec2) == 2.);
     TEST(fabs(bsv_V2d_dot(vec2, vec2) - pow(bsv_V2d_abs(vec2), 2)) < 1e-14);
     /* Unit */
-    TEST(bsv_V2d_isequal(
-        bsv_V2d_unit(vecx), vecx));
-    TEST(bsv_V2d_abs(bsv_V2d_minus(
-        bsv_V2d_unit(vec2), vecunit)) < 1e-14);
+	TEST(bsv_V2d_isequal(
+		bsv_V2d_unit(vecx), vecx));
+	TEST(bsv_V2d_abs(bsv_V2d_minus(
+		bsv_V2d_unit(vec2), vecunit)) < 1e-15);
+	TEST(bsv_V2d_abs(bsv_V2d_minus(
+		bsv_V2d_unit(bsv_V2d_mult(vec2, 2.)), vecunit)) < 1e-15);
+	TEST(bsv_V2d_abs(bsv_V2d_minus(
+		bsv_V2d_unit(bsv_V2d_mult(vec2, 1000.)), vecunit)) < 1e-15);
+	TEST(bsv_V2d_abs(bsv_V2d_minus(
+		bsv_V2d_unit(bsv_V2d_mult(vec2, 1e10)),
+		bsv_V2d_mult(vecunit, 1.))) < 1e-15);
+	TEST(bsv_V2d_abs(bsv_V2d_minus(
+		bsv_V2d_unit(bsv_V2d_mult(vec2, 1e-10)),
+		bsv_V2d_mult(vecunit, 1.))) < 1e-15);
+	TEST(bsv_V2d_abs(bsv_V2d_minus(
+		bsv_V2d_unit(bsv_V2d_mult(vec2, -2.)),
+		bsv_V2d_mult(vecunit, -1.))) < 1e-15);
+	TEST(bsv_V2d_abs(bsv_V2d_minus(
+		bsv_V2d_unit(bsv_V2d_mult(vec2, -1000.)),
+		bsv_V2d_mult(vecunit, -1.))) < 1e-15);
+	TEST(bsv_V2d_abs(bsv_V2d_minus(
+		bsv_V2d_unit(bsv_V2d_mult(vec2, -1e10)),
+		bsv_V2d_mult(vecunit, -1.))) < 1e-15);
+	TEST(bsv_V2d_abs(bsv_V2d_minus(
+		bsv_V2d_unit(bsv_V2d_mult(vec2, -1e-10)),
+		bsv_V2d_mult(vecunit, -1.))) < 1e-15);
     return 0;
 }
 #endif /* BSV_TEST_VEC3F_H */
