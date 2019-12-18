@@ -111,7 +111,12 @@ bsv_V2d bsv_V2d_div(const bsv_V2d self, const double div)
 bsv_V2d bsv_V2d_unit(const bsv_V2d self)
 {
 	bsv_V2d ret = self;
-	ret = bsv_V2d_div(ret, bsv_V2d_abs(ret));
+	double cor;
+	ret = bsv_V2d_mult(ret,
+		bsv_internals_rsqrt(bsv_V2d_dot(ret, ret)));
+	cor = ret.x[0] * ret.x[0] + ret.x[1] * ret.x[1];
+	cor = bsv_internals_approx_near1_rsqrt(cor);
+	ret = bsv_V2d_mult(ret, cor);
 	return ret;
 }
 

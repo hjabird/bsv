@@ -111,7 +111,13 @@ bsv_V2f bsv_V2f_div(const bsv_V2f self, const float div)
 bsv_V2f bsv_V2f_unit(const bsv_V2f self)
 {
 	bsv_V2f ret = self;
-	ret = bsv_V2f_div(ret, bsv_V2f_abs(ret));
+	float cor;
+	ret = bsv_V2f_mult(ret,
+		bsv_internals_rsqrtf(bsv_V2f_dot(ret, ret)));
+	/* And correct any error with Taylor series about 1. */
+	cor = ret.x[0] * ret.x[0] + ret.x[1] * ret.x[1];
+	cor = bsv_internals_approx_near1_rsqrtf(cor);
+	ret = bsv_V2f_mult(ret, cor);
 	return ret;
 }
 

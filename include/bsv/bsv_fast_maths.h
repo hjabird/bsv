@@ -45,6 +45,8 @@ SOFTWARE.
 
 static inline double bsv_internals_sqrt(double x);
 static inline float bsv_internals_sqrtf(float x);
+static inline double bsv_internals_rsqrt(double x);
+static inline float bsv_internals_rsqrtf(float x);
 
 double bsv_internals_sqrt(double x) {
 #ifdef __SSE2__
@@ -62,6 +64,7 @@ double bsv_internals_sqrt(double x) {
 
 float bsv_internals_sqrtf(float x) {
 #ifdef __SSE__
+	double x0 = x;
 	__m128 r1, r2;
 	r1 = _mm_set_ss(x);
 	r2 = _mm_sqrt_ss(r1);
@@ -69,6 +72,29 @@ float bsv_internals_sqrtf(float x) {
 #else
 	x = sqrtf(x);	/* If no SSE, use std lib. */
 #endif
+	return x;
+}
+
+static inline double bsv_internals_rsqrt(double x) {
+	return 1. / bsv_internals_sqrt(x);
+}
+
+static inline float bsv_internals_rsqrtf(float x){
+	/* Using sse rsqrt with N-R hasn't worked well. */
+	x = 1.f / bsv_internals_sqrtf(x);
+	return x;
+}
+
+static inline double bsv_internals_approx_near1_rsqrt(double x) {
+	/* If 1-1e-6 < x < 1+e-6, then max error is around 1e-15,
+	and this is difficult to improve upon due to precision problems. */
+	x = 1.f + -0.5f * (x - 1.f);
+	return x;
+}
+
+static inline float bsv_internals_approx_near1_rsqrtf(float x) {
+	/* For 0.9999 < x < 1.0001, abs(error) < 4e-9 */
+	x = 1.f + -0.5f * (x - 1.f);
 	return x;
 }
 
