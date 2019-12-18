@@ -132,7 +132,12 @@ bsv_V3d bsv_V3d_div(const bsv_V3d self, const double div)
 bsv_V3d bsv_V3d_unit(const bsv_V3d self)
 {
 	bsv_V3d ret = self;
-	ret = bsv_V3d_div(ret, bsv_V3d_abs(ret));
+	double cor;
+	ret = bsv_V3d_mult(ret,
+			bsv_internals_rsqrt(bsv_V3d_dot(ret, ret)));
+	cor = bsv_V3d_dot(ret, ret);
+	cor = bsv_internals_approx_near1_rsqrt(cor);
+	ret = bsv_V3d_mult(ret, cor);
 	return ret;
 }
 

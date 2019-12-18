@@ -127,7 +127,12 @@ bsv_V4f bsv_V4f_div(const bsv_V4f self, const float div)
 bsv_V4f bsv_V4f_unit(const bsv_V4f self)
 {
 	bsv_V4f ret = self;
-	ret = bsv_V4f_div(ret, bsv_V4f_abs(ret));
+	float cor;
+	ret = bsv_V4f_mult(ret,
+		bsv_internals_rsqrt(bsv_V4f_dot(ret, ret)));
+	cor = bsv_V4f_dot(ret, ret);
+	cor = bsv_internals_approx_near1_rsqrt(cor);
+	ret = bsv_V4f_mult(ret, cor);
 	return ret;
 }
 

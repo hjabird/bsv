@@ -132,7 +132,12 @@ bsv_V3f bsv_V3f_div(const bsv_V3f self, const float div)
 bsv_V3f bsv_V3f_unit(const bsv_V3f self)
 {
 	bsv_V3f ret = self;
-	ret = bsv_V3f_div(ret, bsv_V3f_abs(ret));
+	float cor;
+	ret = bsv_V3f_mult(ret,
+		bsv_internals_rsqrtf(bsv_V3f_dot(ret, ret)));
+	cor = bsv_V3f_dot(ret, ret);
+	cor = bsv_internals_approx_near1_rsqrtf(cor);
+	ret = bsv_V3f_mult(ret, cor);
 	return ret;
 }
 
