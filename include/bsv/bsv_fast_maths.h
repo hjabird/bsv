@@ -64,7 +64,6 @@ double bsv_internals_sqrt(double x) {
 
 float bsv_internals_sqrtf(float x) {
 #ifdef __SSE__
-	double x0 = x;
 	__m128 r1, r2;
 	r1 = _mm_set_ss(x);
 	r2 = _mm_sqrt_ss(r1);
@@ -80,7 +79,7 @@ static inline double bsv_internals_rsqrt(double x) {
 }
 
 static inline float bsv_internals_rsqrtf(float x){
-	/* Using sse rsqrt with N-R hasn't worked well. */
+	/* I've not managed to speed things up with _mm_rsqrt_ps */
 	x = 1.f / bsv_internals_sqrtf(x);
 	return x;
 }
@@ -93,8 +92,14 @@ static inline double bsv_internals_approx_near1_rsqrt(double x) {
 }
 
 static inline float bsv_internals_approx_near1_rsqrtf(float x) {
-	/* For 0.9999 < x < 1.0001, abs(error) < 4e-9 */
+	/* For 0.99985 < x < 1.00025, abs(error) < 1e-8 */
 	x = 1.f + -0.5f * (x - 1.f);
+	return x;
+}
+
+static inline float bsv_internals_approx_quadratic_near1_rsqrtf(float x) {
+	/* For 0.997 < x < 1.003, abs(error) < 1e-8 */
+	x = 1.f + (x - 1.f) * ((x - 1.f) * 3.f/8.f - 0.5f);
 	return x;
 }
 
