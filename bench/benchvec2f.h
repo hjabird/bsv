@@ -366,9 +366,9 @@ int benchVec2f(float* frand){
 	benchf(bV2f_minus,					100000000,	"V2f minus [no loop]", frand);
 	benchf(bV2f_minus_loop16,			10000000,	"V2f minus [loop serial 16]", frand);
 	benchf(bV2f_minus_loop2048,			100000,		"V2f minus [loop serial 2048]", frand);
-	benchf(bV2f_unit,					1000000,	"V2f unit [no loop]", frand);
-	benchf(bV2f_unit_loop16,			100000,		"V2f unit [loop serial 16]", frand);
-	benchf(bV2f_unit_loop2048,			2000,		"V2f unit [loop serial 2048]", frand);
+	benchf(bV2f_unit,					10000000,	"V2f unit [no loop]", frand);
+	benchf(bV2f_unit_loop16,			1000000,	"V2f unit [loop serial 16]", frand);
+	benchf(bV2f_unit_loop2048,			20000,		"V2f unit [loop serial 2048]", frand);
 	benchf(bV2f_uminus,					100000000,	"V2f uminus [no loop]", frand);
 	benchf(bV2f_uminus_loop16,			10000000,	"V2f uminus [loop serial 16]", frand);
 	benchf(bV2f_uminus_loop2048,		100000,		"V2f uminus [loop serial 2048]", frand);
