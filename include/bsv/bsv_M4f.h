@@ -5,7 +5,7 @@ bsv_M4f.h
 
 Mat4 single precision square matrix.
 
-Copyright(c) 2018-2019 HJA Bird
+Copyright(c) 2018-2020 HJA Bird
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files(the "Software"), to deal
@@ -27,6 +27,7 @@ SOFTWARE.
 ============================================================================*/
 
 #include "bsv_types.h"
+#include <string.h>
 
 static inline bsv_M4f bsv_M4f_zero(void);
 static inline bsv_M4f bsv_M4f_ones(void);

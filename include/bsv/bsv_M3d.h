@@ -5,7 +5,7 @@ bsv_M3d.h
 
 Mat3 double precision square matrix.
 
-Copyright(c) 2018-2019 HJA Bird
+Copyright(c) 2018-2020 HJA Bird
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files(the "Software"), to deal
@@ -25,6 +25,9 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ============================================================================*/
+
+#include "bsv_types.h"
+#include <string.h>
 
 static inline bsv_M3d bsv_M3d_zero(void);
 static inline bsv_M3d bsv_M3d_ones(void);
